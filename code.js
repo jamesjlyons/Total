@@ -1,9 +1,6 @@
 "use strict";
-// This file holds the main code for the plugin. It has access to the *document*.
-// You can access browser APIs such as the network by creating a UI which contains
-// a full browser environment (see documentation).
 if (figma.currentPage.selection.length === 0) {
-    figma.notify("Please make a selection to find the sum of");
+    figma.notify("Please make a selection of numbers to find the sum of");
 }
 else {
     const nodes = figma.currentPage.selection;
@@ -19,17 +16,21 @@ else {
             }
             else {
                 // If any of the selected text nodes are not valid numbers, send an error to UI
-                figma.notify('One or more selected nodes are not valid numbers');
-                // return;
+                figma.notify('One or more selected nodes are not valid numbers', {
+                    timeout: 2000
+                });
             }
         }
         else {
             // If any of the selected nodes are not text, send an error to UI
-            figma.notify('One or more selected nodes are not text');
-            // return;
+            figma.notify('One or more selected nodes are not text', {
+                timeout: 2000
+            });
         }
     }
-    let totalString = "The sum of your selection is " + sum.toString();
-    figma.notify(totalString, { timeout: 30000 });
+    let totalString = "The sum of your selection is " + sum.toFixed(2);
+    figma.notify(totalString, {
+        timeout: 30000
+    });
 }
 figma.closePlugin();
