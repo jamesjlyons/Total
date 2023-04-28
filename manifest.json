@@ -1,0 +1,12 @@
+{
+  "name": "Quick Maths",
+  "id": "1233466998948778288",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma",
+    "figjam"
+  ]
+}
